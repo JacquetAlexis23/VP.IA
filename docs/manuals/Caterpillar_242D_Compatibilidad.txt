@@ -1,0 +1,15 @@
+Caterpillar 242D - Compatibilidad de Implementos
+
+Sistema hidráulico de alta presión: 55L/min a 3.000 psi
+Capacidad de elevación: 380kg
+Peso operativo: 1.450kg
+
+Implementos compatibles:
+- Martillos hidráulicos: Hasta 500kg
+- Baldes: Hasta 0.4m³
+- Barrenas: Hasta 200mm diámetro
+- Pinzas hidráulicas: Modelos estándar
+- Retroexcavadoras compactas
+
+No compatible con implementos pesados o de gran tamaño.
+Recomendado para: Demolición, excavación, trabajos industriales

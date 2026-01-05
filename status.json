@@ -1,0 +1,23 @@
+{
+  "status": "online",
+  "version": "2.1-unificado",
+  "last_startup": "2026-01-05T11:17:23.127520",
+  "environment": "development",
+  "documents_loaded": 44,
+  "supported_models": [
+    "CVM120",
+    "BAR150",
+    "TH300",
+    "H900",
+    "HD400",
+    "HR260",
+    "MX400",
+    "PN210",
+    "PNA210",
+    "RA600",
+    "RP270",
+    "RS220",
+    "RV150",
+    "Z1200"
+  ]
+}
