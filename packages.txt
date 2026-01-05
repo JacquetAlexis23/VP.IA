@@ -1,5 +1,3 @@
-# Dependencias del sistema para Streamlit Cloud
-# Necesario para pdf2image y OCR
 poppler-utils
 tesseract-ocr
 tesseract-ocr-spa
