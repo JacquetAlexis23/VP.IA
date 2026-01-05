@@ -1,0 +1,74 @@
+# VP-Ai
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+pip-log.txt
+pip-delete-this-directory.txt
+.pytest_cache/
+.coverage
+htmlcov/
+dist/
+build/
+*.egg-info/
+
+# Entorno
+.env
+.env.local
+.env.*.local
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Base de datos
+*.db
+*.sqlite
+*.sqlite3
+
+# Vector DB
+*.index
+chroma/
+
+# Archivos grandes (mantener solo JSON procesado)
+docs/manuals/*.pdf
+docs/manuals/*.PDF
+docs/manuals/*.pptx
+docs/manuals/*.PPTX
+docs/manuals/*.png
+docs/manuals/*.PNG
+docs/manuals/*.jpg
+docs/manuals/*.JPG
+docs/manuals/*.jpeg
+docs/manuals/*.JPEG
+docs/manuals/*.bak
+# EXCEPT: mantener el JSON procesado y archivos de texto
+!docs/rag_documents.json
+!docs/manuals/*.txt
+
+# Ejecutables e instaladores
+*.exe
+*.bat
+install_*.bat
+
+# Archivos de desarrollo local
+ACCESO_CHAT.txt
+ESTADO_ASESOR.txt
+quick_test.py
+rag_manager.py
+test_*.py
+src/agent_new.py

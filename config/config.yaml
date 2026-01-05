@@ -1,0 +1,132 @@
+# Configuración del Agente Comercial B2B
+
+agent:
+  name: "Agente Comercial Técnico B2B"
+  version: "2.1-unificado"
+  language: "es-AR"
+  
+  # Modelo LLM
+  model:
+    provider: "llama"  # llama | claude
+    name: "meta-llama/Meta-Llama-3.1-8B-Instruct"
+    temperature: 0.7
+    max_tokens: 2048
+    
+  # Configuración de respuestas
+  response:
+    min_length: 50
+    max_length: 200
+    max_questions: 2
+
+# Estados y Checkpoints
+states:
+  initial: "NEW"
+  final: "ASSIGNED"
+  
+checkpoints:
+  max: 5
+  
+  definitions:
+    1:
+      name: "Lead Recibido"
+      required: ["canal", "mensaje_inicial"]
+    
+    2:
+      name: "Datos Técnicos Mínimos"
+      required: ["nombre", "zona", "marca", "implemento_interes"]
+    
+    3:
+      name: "Lead Calificado"
+      required: ["lead_score", "rag_validated"]
+    
+    4:
+      name: "Asignación de Vendedor"
+      required: ["vendedor_asignado", "zona"]
+    
+    5:
+      name: "Preparación para CRM"
+      required: ["crm_synced"]
+
+# Scoring de Leads
+lead_scoring:
+  score_a:
+    name: "Alta Prioridad"
+    criteria:
+      - datos_completos: true
+      - implemento_en_catalogo: true
+      - zona_cubierta: true
+      - urgencia: "alta"
+  
+  score_b:
+    name: "Prioridad Media"
+    criteria:
+      - datos_parciales: true
+      - implemento_identificado: true
+  
+  score_c:
+    name: "Baja Prioridad"
+    criteria:
+      - consulta_exploratoria: true
+
+# Sistema RAG
+rag:
+  enabled: true
+  provider: "pinecone"  # pinecone | weaviate | chromadb
+  top_k: 5
+  confidence_threshold: 0.5
+  
+  # Revalidación
+  revalidate_after_hours: 24
+
+# CRM Pilot
+crm:
+  enabled: true
+  sync_on_qualified: true
+  sync_interval_minutes: 15
+  
+  # Asignación de vendedores por zona
+  vendors:
+    buenos_aires:
+      id: "vendor_001"
+      name: "Juan Pérez"
+      zones: ["CABA", "GBA", "La Plata"]
+    
+    cordoba:
+      id: "vendor_002"
+      name: "María García"
+      zones: ["Córdoba", "Villa María"]
+    
+    rosario:
+      id: "vendor_003"
+      name: "Carlos Rodríguez"
+      zones: ["Rosario", "Santa Fe"]
+
+# Canales de comunicación
+channels:
+  whatsapp:
+    enabled: true
+    webhook_url: "/webhooks/whatsapp"
+  
+  instagram:
+    enabled: true
+    webhook_url: "/webhooks/instagram"
+
+# Logging
+logging:
+  level: "INFO"
+  format: "json"
+  output: "console"  # console | file | sentry
+  
+  sentry:
+    enabled: false
+    environment: "development"
+
+# Timeouts y Límites
+timeouts:
+  rag_query_seconds: 5
+  crm_request_seconds: 10
+  llm_request_seconds: 30
+
+limits:
+  max_conversation_history: 50
+  max_flags_per_lead: 10
